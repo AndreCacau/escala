@@ -1,0 +1,35 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    {% bootstrap_css %}
+</head>
+<body>
+<div class="container">
+    <h1> Resultado </h1>
+    <p></p>
+    <button type="submit" class="btn bnt-secondary" style="background-color:blue; color:white; border-color:black">
+        <a style="color:white" href="/sorteio"><h5>Salvar sorteio</h5></a>
+    </button>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Dia</th>
+            {% for i in colunas %}
+            <th scope="col">Nome</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in sorteados %}
+        <tr>
+            <td>{{ i }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

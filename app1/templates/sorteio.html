@@ -1,0 +1,28 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo de Sorteio</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+    <h1> Sorteio </h1>
+    {% bootstrap_messages %}
+    <form method="post" action="{% url 'sorteio' %}" class="form" autocomplete="off">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn bnt-secondary" style="background-color:blue; color:white; border-color:black">
+                Cadastrar Sorteio
+            </button>
+        {% endbuttons %}
+    </form>
+    </div>
+    <button type="submit" class="btn bnt-secondary" style="background-color:blue; color:white; border-color:black">
+        <a style="color:white" href="/"><h5>Voltar</h5></a>
+    </button>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

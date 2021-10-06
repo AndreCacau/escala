@@ -1,0 +1,30 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Pessoas</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <h1>Pessoas</h1>
+    <button type="submit" class="btn bnt-secondary" style="background-color:blue; color:white; border-color:black">
+        <a style="color:white" href="/pessoa"><h5>Cadastrar</h5></a>
+    </button>
+
+    <button type="submit" class="btn bnt-secondary" style="background-color:blue; color:white; border-color:black">
+        <a style="color:white" href="/"><h5>Voltar</h5></a>
+    </button>
+
+    <ul>
+        {% for pessoa in pessoas %}
+            <li>
+                <h3>
+                    {{ pessoa.nome }}      <a href="{% url 'deletar_pessoa' pessoa.id %}"><img src="{% static 'img/Delete24.gif' %}"></a>
+                </h3>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

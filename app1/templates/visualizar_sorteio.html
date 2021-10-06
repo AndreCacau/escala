@@ -1,0 +1,29 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do sorteio</title>
+    {% bootstrap_css %}
+</head>
+<body>
+  <h1>Detalhes do Sorteio</h1>
+  <h3>Id: {{ sorteio.pk }}</h3>
+  <h3>Data/Hora: {{ sorteio.data_hora }}</h3>
+  <h3>Quantidade de dias: {{ sorteio.dias }}</h3>
+  <h3>Pessoas/dia: {{ sorteio.colunas }}</h3>
+  <!--Nao conseguimos guardar, tao pouco exibir o resultado do sorteio. Ele apenas eh mostrado quando cadastrado
+  <h3>Resultado:</h3>
+  {% for i in sorteio.resultado %}
+    <h3>{{ i }}</h3><br>
+  {% endfor %}
+  Mesmo utilizando o setattr (linha 95 arquivo views)
+  -->
+  <button type="submit" class="btn bnt-secondary" style="background-color:blue; color:white; border-color:black">
+        <a style="color:white" href="/historico"><h5>Voltar</h5></a>
+  </button>
+  <button type="submit" class="btn bnt-secondary" style="background-color:red; color:white; border-color:black">
+        <a style="color:white" href="{% url 'deletar_sorteio' sorteio.id %}"><h5>Deletar</h5></a>
+  </button>
+</body>
+</html>

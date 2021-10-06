@@ -1,0 +1,23 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <h1>Histórico</h1>
+    <ul>
+        {% for sorteio in sorteios %}
+            <a href="{% url 'visualizar_sorteio' sorteio.pk %}">
+                <li><h3>Sorteio {{ sorteio.pk }}</h3></li>
+            </a>
+        {% endfor %}
+    </ul>
+
+    <button type="submit" class="btn bnt-secondary" style="background-color:blue; color:white; border-color:black">
+        <a style="color:white" href="/"><h5>Voltar</h5></a>
+    </button>
+</body>
+</html>
